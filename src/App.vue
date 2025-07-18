@@ -41,7 +41,7 @@
                 </div>
             </div>
         </nav>
-
+<!-- error aai ra xa -->
   <main class="px-8 py-6 bg-grey-100">
        <RouterView />
   </main> 
