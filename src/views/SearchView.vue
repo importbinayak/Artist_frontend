@@ -13,7 +13,7 @@
                         <div class="p-4 text-center bg-gray-100 rounded-lg">
                             <img src="https://i.pravatar.cc/300?img=70" class="mb-6 rounded-full">
                         
-                            <p><strong>Code With Stein</strong></p>
+                            <p><strong>Binayak</strong></p>
 
                             <div class="mt-6 flex space-x-8 justify-around">
                                 <p class="text-xs text-gray-500">182 friends</p>
@@ -24,7 +24,7 @@
                         <div class="p-4 text-center bg-gray-100 rounded-lg">
                             <img src="https://i.pravatar.cc/300?img=70" class="mb-6 rounded-full">
                         
-                            <p><strong>Code With Stein</strong></p>
+                            <p><strong>Binayak</strong></p>
 
                             <div class="mt-6 flex space-x-8 justify-around">
                                 <p class="text-xs text-gray-500">182 friends</p>
@@ -35,7 +35,7 @@
                         <div class="p-4 text-center bg-gray-100 rounded-lg">
                             <img src="https://i.pravatar.cc/300?img=70" class="mb-6 rounded-full">
                         
-                            <p><strong>Code With Stein</strong></p>
+                            <p><strong>Binayak</strong></p>
 
                             <div class="mt-6 flex space-x-8 justify-around">
                                 <p class="text-xs text-gray-500">182 friends</p>
@@ -46,7 +46,7 @@
                         <div class="p-4 text-center bg-gray-100 rounded-lg">
                             <img src="https://i.pravatar.cc/300?img=70" class="mb-6 rounded-full">
                         
-                            <p><strong>Code With Stein</strong></p>
+                            <p><strong>Binayak</strong></p>
 
                             <div class="mt-6 flex space-x-8 justify-around">
                                 <p class="text-xs text-gray-500">182 friends</p>
@@ -57,7 +57,7 @@
                         <div class="p-4 text-center bg-gray-100 rounded-lg">
                             <img src="https://i.pravatar.cc/300?img=70" class="mb-6 rounded-full">
                         
-                            <p><strong>Code With Stein</strong></p>
+                            <p><strong>Binayak</strong></p>
 
                             <div class="mt-6 flex space-x-8 justify-around">
                                 <p class="text-xs text-gray-500">182 friends</p>
@@ -71,7 +71,7 @@
                             <div class="flex items-center space-x-6">
                                 <img src="https://i.pravatar.cc/300?img=70" class="w-[40px] rounded-full">
                                 
-                                <p><strong>Code With Stein</strong></p>
+                                <p><strong>Binayak</strong></p>
                             </div>
 
                             <p class="text-gray-600">28 minutes ago</p>
