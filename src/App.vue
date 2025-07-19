@@ -1,3 +1,4 @@
+import { RouterView } from 'vue-router'
 <template>
   <nav class="py-10 px-8 border-b border-gray-200">
             <div class="max-w-7xl mx-auto">
