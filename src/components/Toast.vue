@@ -1,12 +1,15 @@
-<script setup>
+<script>
 import { useToastStore } from '@/stores/toast'
 
-const store=useToastStore()
+export default {
+  setup() {
+    const store = useToastStore()
 
-return{
-    store
+    return {
+      store
+    }
+  }
 }
-
 </script>
 
 

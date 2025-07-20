@@ -111,6 +111,7 @@
 
                 <div class="main-right col-span-1 space-y-4">
                     <PeopleYouMayKnow/>
+                    <Trends/>
 
                     
                 </div>
@@ -119,12 +120,12 @@
 
 <script>
 import PeopleYouMayKnow from '@/components/PeopleYouMayKnow.vue'
-import Toast from '@/components/Toast.vue'
+import Trends from '@/components/Trends.vue'
 export default{
     name:'SearchView',
     components:{
         PeopleYouMayKnow,
-        Toast,
+        Trends,
     }
 }
 
