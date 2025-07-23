@@ -16,7 +16,7 @@
 
         <div class="main-right">
             <div class="p-12 bg-white border border-gray-200 rounded-lg">
-                <form class="space-y-6" v-on:submit.prevent="submitForm">
+                <form class="space-y-6" @submit.prevent="submitForm">
                             <div>
                                 <label>Name</label><br>
                                 <input type="text" v-model="form.name" placeholder="Your Full Nme" class="w-full mt-2 py-4 px-6 border border-gray-200 rounded-lg">
@@ -41,7 +41,7 @@
                                 </div>
                             </template>
                             <div>
-                                <button type="submit" class="py-4 px-6 bg-purple-600 text-white rounded-lg">Signup</button>
+                                <button class="py-4 px-6 bg-purple-600 text-white rounded-lg">Signup</button>
                             </div>
                         </form>
             </div>

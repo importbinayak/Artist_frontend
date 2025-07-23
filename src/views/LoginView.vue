@@ -16,7 +16,7 @@
 
         <div class="main-right">
             <div class="p-12 bg-white border border-gray-200 rounded-lg">
-                <form class="space-y-6">
+                <form @submit.prevent="submitForm" class="space-y-6">
                             <div>
                                 <label>E-mail</label><br>
                                 <input type="email" v-model="form.email" placeholder="Your e-mail address" class="w-full mt-2 py-4 px-6 border border-gray-200 rounded-lg">
@@ -26,7 +26,7 @@
                                 <label>Password</label><br>
                                 <input type="password" v-model="form.password" placeholder="Your password" class="w-full mt-2 py-4 px-6 border border-gray-200 rounded-lg">
                             </div>
-                            <template v-if="ErrorCodes.length > 0">
+                            <template v-if="errors.length > 0">
                                 <div class="bg-red-300 text-white rounded-lg p-6">
                                     <p v-for="error in errors" v-bind:key="error">{{ error }}</p>
                                 </div>
@@ -79,7 +79,7 @@ export default {
                 await axios
                     .post("/api/login/",this.form)
                     .then(response => {
-                        this.store.setToken(response.data)
+                        this.userStore.setToken(response.data)
 
                         axios.defaults.headers.common["Authorization"]="Bearer "+response.data.access
                     })
@@ -90,9 +90,9 @@ export default {
                 await axios
                     .get('/api/me/')
                     .then(response => {
-                        this.store.setUserInfo(response.data)
+                        this.userStore.setUserInfo(response.data)
 
-                        this.$router.push({name:'feed'})
+                        this.$router.push({name: 'feed'})
                     })
                     .catch(error => {
                         console.log('error',error)

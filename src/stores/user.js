@@ -2,9 +2,8 @@ import { defineStore } from "pinia"
 import axios from "axios"
 
 
-export const useUserStore= defineStore({
-    id:'user',
-
+export const useUserStore= defineStore('user',
+    {
 
     state:()=>({
         user:{
@@ -18,12 +17,16 @@ export const useUserStore= defineStore({
     }),
     actions:{
         initStore(){
+            console.log('initstore')
             if(localStorage.getItem('user.access')){
+                console.log("user has accessed")
                 this.user.access=localStorage.getItem('user.access')
                 this.user.refresh=localStorage.getItem('user.refresh')
                 this.user.id=localStorage.getItem('user.id')
                 this.user.name=localStorage.getItem('user.name')
                 this.user.email=localStorage.getItem('user.email')
+
+                this.user.isAuthenticated=true
 
                 this.refreshToken()
 
