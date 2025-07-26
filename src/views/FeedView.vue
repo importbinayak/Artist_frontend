@@ -71,10 +71,10 @@
                             <div class="flex items-center space-x-6">
                                 <img src="https://i.pravatar.cc/300?img=70" class="w-[40px] rounded-full">
                                 
-                                <p><strong>Binayak</strong></p>
+                                <p><strong>{{ post.created_by.name }}</strong></p>
                             </div>
 
-                            <p class="text-gray-600">28 minutes ago</p>
+                            <p class="text-gray-600">{{ post.created_at_min }}</p>
                         </div>
 
                         <p>
