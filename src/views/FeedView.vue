@@ -20,8 +20,8 @@
                         <a href="#" class="inline-block py-4 px-6 bg-purple-600 text-white rounded-lg">Post</a>
                 </div>
             </div>
-            <div class="p-4 bg-white border border-gray-200 rounded-lg">
-                        <div class="mb-6 flex items-center justify-between">
+            <!-- <div class="p-4 bg-white border border-gray-200 rounded-lg"  v-for="post in posts" v-bind:key="post.id">
+                        <div class="mb-6 flex items-center justify-between" >
                             <div class="flex items-center space-x-6">
                                 <img src="https://i.pravatar.cc/300?img=70" class="w-[40px] rounded-full">
                                 
@@ -32,6 +32,13 @@
                         </div>
 
                         <img src="https://images.unsplash.com/photo-1661956602868-6ae368943878?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80" class="w-full rounded-lg">
+
+                         <div 
+                        class="my-6 flex justify-between" 
+                        v-for="post in posts" 
+                        v-bind:key="post.id">
+                            Hello
+                        </div> 
 
                         <div class="my-6 flex justify-between">
                             <div class="flex space-x-6">
@@ -58,8 +65,8 @@
                                 </svg>   
                             </div>   
                         </div>  
-                    </div>
-                    <div class="p-4 bg-white border border-gray-200 rounded-lg">
+                    </div> -->
+                    <div class="p-4 bg-white border border-gray-200 rounded-lg" v-for="post in posts" v-bind:key="post.id">
                         <div class="mb-6 flex items-center justify-between">
                             <div class="flex items-center space-x-6">
                                 <img src="https://i.pravatar.cc/300?img=70" class="w-[40px] rounded-full">
@@ -71,7 +78,7 @@
                         </div>
 
                         <p>
-                            This is just a random text post. This is just a random text post. This is just a random text post. This is just a random text post.
+                            {{ post.body }}
                         </p>
 
                         <div class="my-6 flex justify-between">
@@ -102,102 +109,46 @@
                     </div>
         </div>
         <div class="main-right col-span-1 space-y-4">
-                    <div class="p-4 bg-white border border-gray-200 rounded-lg">
-                        <h3 class="mb-6 text-xl">People you may know</h3>
+                    <PeopleYouMayKnow />
 
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-2">
-                                    <img src="https://i.pravatar.cc/300?img=70" class="w-[40px] rounded-full">
-                                    
-                                    <p class="text-xs"><strong>Binayak</strong></p>
-                                </div>
-
-                                <a href="#" class="py-2 px-3 bg-purple-600 text-white text-xs rounded-lg">Show</a>
-                            </div>
-
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-2">
-                                    <img src="https://i.pravatar.cc/300?img=70" class="w-[40px] rounded-full">
-                                    
-                                    <p class="text-xs"><strong>Binayak</strong></p>
-                                </div>
-
-                                <a href="#" class="py-2 px-3 bg-purple-600 text-white text-xs rounded-lg">Show</a>
-                            </div>
-
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-2">
-                                    <img src="https://i.pravatar.cc/300?img=70" class="w-[40px] rounded-full">
-                                    
-                                    <p class="text-xs"><strong>Binayak</strong></p>
-                                </div>
-
-                                <a href="#" class="py-2 px-3 bg-purple-600 text-white text-xs rounded-lg">Show</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-4 bg-white border border-gray-200 rounded-lg">
-                        <h3 class="mb-6 text-xl">Trends</h3>
-
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-2">
-                                    <p class="text-xs">
-                                        <strong>Binayak</strong><br>
-                                        <span class="text-gray-500">180 posts</span>
-                                    </p>
-                                </div>
-
-                                <a href="#" class="py-2 px-3 bg-purple-600 text-white text-xs rounded-lg">Explore</a>
-                            </div>
-
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-2">
-                                    <p class="text-xs">
-                                        <strong>Binayak</strong><br>
-                                        <span class="text-gray-500">180 posts</span>
-                                    </p>
-                                </div>
-
-                                <a href="#" class="py-2 px-3 bg-purple-600 text-white text-xs rounded-lg">Explore</a>
-                            </div>
-
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-2">
-                                    <p class="text-xs">
-                                        <strong>Binayak</strong><br>
-                                        <span class="text-gray-500">180 posts</span>
-                                    </p>
-                                </div>
-
-                                <a href="#" class="py-2 px-3 bg-purple-600 text-white text-xs rounded-lg">Explore</a>
-                            </div>
-
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-2">
-                                    <p class="text-xs">
-                                        <strong>Binayak</strong><br>
-                                        <span class="text-gray-500">180 posts</span>
-                                    </p>
-                                </div>
-
-                                <a href="#" class="py-2 px-3 bg-purple-600 text-white text-xs rounded-lg">Explore</a>
-                            </div>
-
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-2">
-                                    <p class="text-xs">
-                                        <strong>Binayak</strong><br>
-                                        <span class="text-gray-500">180 posts</span>
-                                    </p>
-                                </div>
-
-                                <a href="#" class="py-2 px-3 bg-purple-600 text-white text-xs rounded-lg">Explore</a>
-                            </div>
-                </div>
-            </div>
+                    <Trends />
         </div>
     </div>
 </template>
+
+<script>
+import PeopleYouMayKnow from '@/components/PeopleYouMayKnow.vue';
+import Trends from '@/components/Trends.vue';
+import axios from 'axios';
+
+export default{
+    name:'FeedView',
+    components:{
+        PeopleYouMayKnow,
+        Trends,
+    },
+    data(){
+        return{
+            posts:[]
+        }
+    },
+    mounted(){
+        this.getFeed()
+    },
+    methods:{
+        getFeed(){
+            axios
+                .get('/api/posts/')
+                .then(Response => {
+                    console.log('data',Response.data)
+                    this.posts =Response.data.data
+                })
+                .catch(error=>{
+                    console.log('error',error)
+                })
+        }
+    }
+}
+
+
+</script>
