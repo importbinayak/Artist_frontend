@@ -1,63 +1,21 @@
 <template>
     <div class="max-w-7xl mx-auto grid grid-cols-4 gap-4">
-                <div class="main-center col-span-3 space-y-4">
+            <div class="main-center col-span-3 space-y-4">
                     <div class="bg-white border border-gray-200 rounded-lg">
-                        <div class="p-4 flex space-x-4">  
-                            <input type="search" class="p-4 w-full bg-gray-100 rounded-lg" placeholder="What are you looking for?">
+                        <form v-on:submit.prevent="submitForm" class="p-4 flex space-x-4">  
+                            <input v-model="query" type="search" class="p-4 w-full bg-gray-100 rounded-lg" placeholder="What are you looking for?">
 
-                            <a href="#" class="inline-block py-4 px-6 bg-purple-600 text-white rounded-lg">Post</a>
-                        </div>
+                            <button class="inline-block py-4 px-6 bg-purple-600 text-white rounded-lg">Post</button>
+                        </form>
                     </div>
 
                     <div class="p-4 bg-white border border-gray-200 rounded-lg grid grid-cols-4 gap-4">
-                        <div class="p-4 text-center bg-gray-100 rounded-lg">
+                        <div 
+                        v-for="user in users" v-bind:key="user.id"
+                        class="p-4 text-center bg-gray-100 rounded-lg">
                             <img src="https://i.pravatar.cc/300?img=70" class="mb-6 rounded-full">
                         
-                            <p><strong>Binayak</strong></p>
-
-                            <div class="mt-6 flex space-x-8 justify-around">
-                                <p class="text-xs text-gray-500">182 friends</p>
-                                <p class="text-xs text-gray-500">120 posts</p>
-                            </div>
-                        </div>
-
-                        <div class="p-4 text-center bg-gray-100 rounded-lg">
-                            <img src="https://i.pravatar.cc/300?img=70" class="mb-6 rounded-full">
-                        
-                            <p><strong>Binayak</strong></p>
-
-                            <div class="mt-6 flex space-x-8 justify-around">
-                                <p class="text-xs text-gray-500">182 friends</p>
-                                <p class="text-xs text-gray-500">120 posts</p>
-                            </div>
-                        </div>
-
-                        <div class="p-4 text-center bg-gray-100 rounded-lg">
-                            <img src="https://i.pravatar.cc/300?img=70" class="mb-6 rounded-full">
-                        
-                            <p><strong>Binayak</strong></p>
-
-                            <div class="mt-6 flex space-x-8 justify-around">
-                                <p class="text-xs text-gray-500">182 friends</p>
-                                <p class="text-xs text-gray-500">120 posts</p>
-                            </div>
-                        </div>
-
-                        <div class="p-4 text-center bg-gray-100 rounded-lg">
-                            <img src="https://i.pravatar.cc/300?img=70" class="mb-6 rounded-full">
-                        
-                            <p><strong>Binayak</strong></p>
-
-                            <div class="mt-6 flex space-x-8 justify-around">
-                                <p class="text-xs text-gray-500">182 friends</p>
-                                <p class="text-xs text-gray-500">120 posts</p>
-                            </div>
-                        </div>
-
-                        <div class="p-4 text-center bg-gray-100 rounded-lg">
-                            <img src="https://i.pravatar.cc/300?img=70" class="mb-6 rounded-full">
-                        
-                            <p><strong>Binayak</strong></p>
+                            <p><strong>{{ user.name }}</strong></p>
 
                             <div class="mt-6 flex space-x-8 justify-around">
                                 <p class="text-xs text-gray-500">182 friends</p>
@@ -65,20 +23,22 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="p-4 bg-white border border-gray-200 rounded-lg">
+                    <div
+                    v-for="post in posts"
+                            v-bind:key="post.id"
+                             class="p-4 bg-white border border-gray-200 rounded-lg">
                         <div class="mb-6 flex items-center justify-between">
                             <div class="flex items-center space-x-6">
                                 <img src="https://i.pravatar.cc/300?img=70" class="w-[40px] rounded-full">
                                 
-                                <p><strong>Binayak</strong></p>
+                                <p><strong>{{ post.created_by.name }}</strong></p>
                             </div>
 
-                            <p class="text-gray-600">28 minutes ago</p>
+                            <p class="text-gray-600">{{ post.created_at_min }}</p>
                         </div>
 
                         <p>
-                            This is just a random text post. This is just a random text post. This is just a random text post. This is just a random text post.
+                            {{ post.body }}
                         </p>
 
                         <div class="my-6 flex justify-between">
@@ -107,18 +67,19 @@
                             </div>   
                         </div>  
                     </div>
-                </div>
 
                 <div class="main-right col-span-1 space-y-4">
                     <PeopleYouMayKnow/>
                     <Trends/>
 
                     
-                </div>
             </div>
+            </div>
+    </div>
 </template>
 
 <script>
+import axios from 'axios';
 import PeopleYouMayKnow from '@/components/PeopleYouMayKnow.vue'
 import Trends from '@/components/Trends.vue'
 export default{
@@ -126,6 +87,32 @@ export default{
     components:{
         PeopleYouMayKnow,
         Trends,
+    },
+
+    data(){
+        return {
+            query:'',
+            users:[],
+            posts:[]
+        }
+    },
+    methods:{
+        submitForm(){
+            console.log('submitForm',this.query)
+
+            axios
+                .post('/api/search/search/',{
+                    query:this.query
+                })
+                .then(Response =>{
+                    console.log('response',Response.data)
+                    this.users=Response.data.users
+                    this.posts=Response.data.posts
+                })
+                .catch(error=>{
+                    console.log('error:',error)
+                })
+        }
     }
 }
 
