@@ -6,7 +6,7 @@
             <p><strong>{{ user.name }}</strong></p>
 
             <div class="mt-6 flex space-x-8 justify-around">
-                <p class="text-xs text-gray-500">2333 friends</p>
+                <RouterLink :to="{name:'friends',params:{'id':user.id}}" class="text-xs text-gray-500">2333 friends</RouterLink>
                 <p class="text-xs text-gray-500">2333 post</p>
             </div>
             <div class="mt-6">
@@ -98,7 +98,7 @@ export default{
     methods:{
         sendFrandshipRequest(){
             axios
-                .post(`/api/friends/request/${this.$route.params.id}`)
+                .post(`/api/friends/${this.$route.params.id}/request/`)
                 .this(Response=>{
                     console.log('data',Response.data)
                     this.user=Response.data.user
