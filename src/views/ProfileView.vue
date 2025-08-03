@@ -9,8 +9,15 @@
                 <RouterLink :to="{name:'friends',params:{'id':user.id}}" class="text-xs text-gray-500">{{ user.friends_count }} friends</RouterLink>
                 <p class="text-xs text-gray-500">2333 post</p>
             </div>
-            <div class="mt-6">
-                <button class="inline-block py-4 px-3 bg-purple-600 text-sm text-white rounded-lg" @click="sendFriendshipRequest">Send Request</button>
+            <div class="mt-6" >
+                <button
+                v-if="userStore.user && user && userStore.user.id !== user.id"
+                 class="inline-block py-4 px-3 bg-purple-600 text-sm text-white rounded-lg" @click="sendFriendshipRequest">Send Request
+                </button>
+                <button
+                v-if="userStore.user && user && userStore.user.id === user.id"
+                 class="inline-block py-4 px-3 bg-red-600 text-sm text-white rounded-lg" @click="logout">Logout
+                </button>
             </div>
         </div>
         <div class="main-center col-span-2 space-y-4">
@@ -67,7 +74,9 @@ export default{
     data(){
         return{
             posts:[],
-            user:{},
+            user:{
+                id:null,
+            },
             body:'',
         }
     },
@@ -142,6 +151,11 @@ export default{
                 .catch(error =>{
                     console.log('error',error)
                 })
+        },
+        logout(){
+            console.log('logout')
+            this.userStore.removeToken()
+            this.$router.push('/login')
         }
     }
 }
