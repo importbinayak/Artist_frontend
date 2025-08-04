@@ -54,7 +54,7 @@ export default{
                 .then(Response => {
                     console.log(Response.data);
                     // Optionally, you can update the post's likes_count here
-                    // this.post.likes_count += 1;
+                    this.post.likes_count += 1;
                 })
                 .catch(error=>{
                     console.log('error',error)
